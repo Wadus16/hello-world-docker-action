@@ -9,7 +9,7 @@ jobs:
         run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: wadus16
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_DOCKER_PASSWORD }}
+          DOCKER_PASSWORD: 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
 
       # - name: Hello world action step
       #   id: hello
