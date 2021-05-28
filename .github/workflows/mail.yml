@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - name: Login to GitHub Docker Registry
+        run: docker login docker.pkg.github.com --username wadus16 --password ${{ secrets.GITHUB_TOKEN }}
+        
       - name: Hello world action step
         id: hello
         uses: Wadus16/hello-world-docker-action@master
