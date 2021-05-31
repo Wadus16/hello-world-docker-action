@@ -23,9 +23,6 @@ jobs:
     - name: Docker images
       run: docker images
       
-    - name: Docker pull
-      run: docker pull docker.pkg.github.com/wadus16/jenkins/test:1.0
-      
     - name: Docker run
       run: docker run --rm docker.pkg.github.com/wadus16/jenkins/test:1.0 /bin/bash
       
