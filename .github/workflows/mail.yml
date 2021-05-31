@@ -1,22 +1,18 @@
-on: [push]
+name: Test
+on:
+  pull_request:
+  push: { branches: master }
 
 jobs:
-  hello_world_job:
+  test:
+    name: Run test suite
     runs-on: ubuntu-latest
-    name: A job to say hello
-    steps:
-      - name: Login to GitHub Docker Registry
-        run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD 
-        env:
-          DOCKER_USERNAME: wadus16
-          #DOCKER_PASSWORD: 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
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Hello world action step
-      #   id: hello
-      #   uses: Wadus16/hello-world-docker-action@master
-      #   with:
-      #     who-to-greet: 'Mona the Octocat'
-      # # Use the output from the `hello` step
-      # - name: Get the output time
-      #   run: echo "The time was ${{ steps.hello.outputs.time }}"
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Docker login
+      run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
