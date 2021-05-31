@@ -27,7 +27,7 @@ jobs:
       run: docker pull docker.pkg.github.com/wadus16/jenkins/test:1.0
       
     - name: Docker run
-      run: docker run -it --rm docker.pkg.github.com/wadus16/jenkins/test:1.0 /bin/bash
+      run: docker run --rm docker.pkg.github.com/wadus16/jenkins/test:1.0 /bin/bash
       
     - name: Docker hello
       run: echo "hello!"
