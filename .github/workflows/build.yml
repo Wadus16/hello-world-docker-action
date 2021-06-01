@@ -14,29 +14,33 @@ jobs:
     #- name: Checkout code12
     #  uses: actions/checkout@v2
     
-    # Set Github Access Token with "write:packages & read:packages" scope for Github Container Registry.
-    # Then go to repository setings and add the copied token as a secret called "CR_PAT"
-    # https://github.com/settings/tokens/new?scopes=repo,write:packages&description=Github+Container+Registry
-    # ! While GHCR is in Beta make sure to enable the feature
-    - name: Logging into GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: docker.pkg.github.com
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+      # # Set Github Access Token with "write:packages & read:packages" scope for Github Container Registry.
+      # # Then go to repository setings and add the copied token as a secret called "CR_PAT"
+      # # https://github.com/settings/tokens/new?scopes=repo,write:packages&description=Github+Container+Registry
+      # # ! While GHCR is in Beta make sure to enable the feature
+      # - name: Logging into GitHub Container Registry
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: docker.pkg.github.com
+      #     username: ${{ github.repository_owner }}
+      #     password: ${{ secrets.GITHUB_TOKEN }}
 
-    #- name: Docker login
-    # run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+      # #- name: Docker login
+      # # run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+        
       
-    
-    #- name: Docker pull
-     # run: docker pull docker.pkg.github.com/wadus16/jenkins/test:1.0
+      # #- name: Docker pull
+      #  # run: docker pull docker.pkg.github.com/wadus16/jenkins/test:1.0
+        
+      # - name: Docker images
+      #   run: docker images
+        
+      # - name: Docker run
+      #   run: docker run --name build-conf-1c-from-repoEDT --rm -p 5900:5900 -v C:\Users\User\Documents\GitHub\onec-docker\install:/tmp/install -v C:\Users\User\Documents\GitHub\onec-docker\_release_1c:/tmp/_release_1c  wadus16/onec-client-vnc-jdk-edt_new:8.3.17.1549  bash /start_build.sh d77eba58b4e4060940ce5f3f82a65a653dcb3024
       
-    - name: Docker images
-      run: docker images
-      
-    - name: Docker run
-      run: docker run --name build-conf-1c-from-repoEDT --rm -p 5900:5900 -v C:\Users\User\Documents\GitHub\onec-docker\install:/tmp/install -v C:\Users\User\Documents\GitHub\onec-docker\_release_1c:/tmp/_release_1c  wadus16/onec-client-vnc-jdk-edt_new:8.3.17.1549  bash /start_build.sh d77eba58b4e4060940ce5f3f82a65a653dcb3024
-      
- 
+    - name: Create folder
+      run: mkdir /test_github
+
+    - name: Create file
+      run: NUL> githubfile
     
