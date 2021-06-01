@@ -45,6 +45,6 @@ jobs:
       run: docker images
         
     - name: Docker run
-      run: docker run --name build-conf-1c-from-repoEDT --rm -p 5900:5900 -v Temp/test_github:/tmp/_release_1c  wadus16/onec-client-vnc-jdk-edt_new:8.3.17.1549  bash /start_build.sh d77eba58b4e4060940ce5f3f82a65a653dcb3024
+      run: docker run --name build-conf-1c-from-repoEDT --rm -p 5900:5900 -v C:\Users\User\Documents\GitHub\_runner_hello-world-docker-action\actions-runner\_work\hello-world-docker-action\hello-world-docker-action\Temp\test_github:/tmp/_release_1c  wadus16/onec-client-vnc-jdk-edt_new:8.3.17.1549  bash /start_build.sh d77eba58b4e4060940ce5f3f82a65a653dcb3024
   
     
