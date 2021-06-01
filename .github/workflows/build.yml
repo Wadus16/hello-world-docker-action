@@ -39,7 +39,7 @@ jobs:
       #   run: docker run --name build-conf-1c-from-repoEDT --rm -p 5900:5900 -v C:\Users\User\Documents\GitHub\onec-docker\install:/tmp/install -v C:\Users\User\Documents\GitHub\onec-docker\_release_1c:/tmp/_release_1c  wadus16/onec-client-vnc-jdk-edt_new:8.3.17.1549  bash /start_build.sh d77eba58b4e4060940ce5f3f82a65a653dcb3024
       
     - name: Create temp folder
-      run: mkdir Temp/test_github
+      run: mkdir -p Temp/test_github
 
     # - name: Docker images
       #   run: docker images
