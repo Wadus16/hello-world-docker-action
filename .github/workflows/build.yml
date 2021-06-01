@@ -1,0 +1,43 @@
+name: Test
+on:
+  pull_request:
+  push: { branches: master }
+
+jobs:
+  test:
+    name: Run test suite
+    runs-on: self-hosted
+    #env:
+    #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    #- name: Checkout code
+    #  uses: actions/checkout@v2
+    
+    # Set Github Access Token with "write:packages & read:packages" scope for Github Container Registry.
+    # Then go to repository setings and add the copied token as a secret called "CR_PAT"
+    # https://github.com/settings/tokens/new?scopes=repo,write:packages&description=Github+Container+Registry
+    # ! While GHCR is in Beta make sure to enable the feature
+    - name: Logging into GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: docker.pkg.github.com
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    #- name: Docker login
+    # run: echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+      
+    
+    #- name: Docker pull
+     # run: docker pull docker.pkg.github.com/wadus16/jenkins/test:1.0
+      
+    - name: Docker images
+      run: docker images
+      
+    #- name: Docker run
+    #  run: docker run --rm docker.pkg.github.com/wadus16/jenkins/test:1.0 /bin/bash
+      
+    - name: lshw | more
+      run: lshw | more
+    
