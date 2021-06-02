@@ -1,7 +1,7 @@
 name: Test
 on:
   pull_request:
-  push: { branches: test_login }
+  push: { branches: master }
 
 jobs:
   test:
@@ -11,6 +11,8 @@ jobs:
     #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
+    - name: Docker images
+      run: docker images
     #- name: Checkout code
     #  uses: actions/checkout@v2
     
