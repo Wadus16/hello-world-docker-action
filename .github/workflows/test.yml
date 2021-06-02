@@ -18,4 +18,4 @@ jobs:
         run: echo "The time was ${{ steps.hello.outputs.time }}"
       
       - name: Docker images
-      run: docker images
+        run: docker images
