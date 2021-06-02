@@ -5,7 +5,7 @@ FROM alpine:3.10
 COPY entrypoint.sh /entrypoint.sh
 #RUN chmod +x /entrypoint.sh
 
-echo "HELLO! Test Vadim!"
+RUN echo "HELLO! Test Vadim!"
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
 
